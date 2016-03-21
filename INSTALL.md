@@ -1,6 +1,6 @@
 #neural-style Installation
 
-This guide will walk you through the setup for `neural-style` on Ubuntu.
+This guide will walk you through the setup for `neural-style`
 
 ## Step 1: Install torch7
 
@@ -33,8 +33,13 @@ To quit just type `exit`.
 `loadcaffe` depends on [Google's Protocol Buffer library](https://developers.google.com/protocol-buffers/?hl=en)
 so we'll need to install that first:
 
+Ubuntu:
 ```
 sudo apt-get install libprotobuf-dev protobuf-compiler
+```
+Fedora: 
+```
+sudo dnf install protobuf-devel protobuf-compiler
 ```
 
 Now we can instal `loadcaffe`:
@@ -117,6 +122,7 @@ speed up `neural-style` with CUDA.
 First download and unpack the local CUDA installer from NVIDIA; note that there are different
 installers for each recent version of Ubuntu:
 
+Ubuntu:
 ```
 # For Ubuntu 14.10
 wget http://developer.download.nvidia.com/compute/cuda/7_0/Prod/local_installers/rpmdeb/cuda-repo-ubuntu1410-7-0-local_7.0-28_amd64.deb
@@ -142,6 +148,14 @@ sudo apt-get update
 sudo apt-get install cuda
 ```
 
+Fedora:
+```
+# For Fedora 21 
+wget http://developer.download.nvidia.com/compute/cuda/repos/fedora21/x86_64/cuda-repo-fedora21-7.5-18.x86_64.rpm
+sudo rpm -i cuda-repo-fedora21-7.5-18.x86_64.rpm
+sudo yum clean all
+sudo yum install cuda
+```
 At this point you may need to reboot your machine to load the new graphics driver.
 After rebooting, you should be able to see the status of your graphics card(s) by running
 the command `nvidia-smi`; it should give output that looks something like this:
